@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<String> content= FileHandler.getFileContent("inputFile.txt");
+
         for (String line:content) {
 
         System.out.println("");
