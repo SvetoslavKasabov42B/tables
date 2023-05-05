@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class FileHandler {
 
-    public static ArrayList<String> getFileContent(String fileName){
+    public static ArrayList<String> getFileContent(File file){
         ArrayList<String> content = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName.toString()))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 
             String line;
             int counter = 0;
