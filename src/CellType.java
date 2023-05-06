@@ -1,3 +1,3 @@
 enum CellType {
-    INT, STRING, FORMULA
+    INT, STRING, FLOAT, FORMULA
 }

@@ -6,6 +6,9 @@ abstract class Cell {
     public static Cell createIntCell(int value,Position position) {
         return new IntCell(value, position);
     }
+    public static Cell createFloatCell(float value,Position position) {
+        return new FloatCell(value, position);
+    }
 
     public static Cell createStringCell(String value,Position position) {
         return new StringCell(value, position);

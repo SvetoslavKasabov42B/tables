@@ -1,11 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 
-/* 1.Всеки ред във файла представя отделен ред в таблицата.
-2. Всеки ред във файла съдържа данни разделени със запетаи. Тези данни се
-интерпретират като стойностите в клетките на реда.
-3. Всеки ред в таблицата може да съдържа различен брой клетки. Затова и всеки ред
-във файла може да съдържа различен брой елементи разделени със запетаи.
+/*
 4. Празен ред във файла представя празен ред в таблицата. (т.е. ред, в който всички
 клетки са празни).
 5. Между две запетаи във файла може да няма никакви данни. По този начин се
@@ -56,41 +52,62 @@ public class Main {
 
         ArrayList<Cell> cellsM = new ArrayList<Cell>();
 
-        int i =0;
-        for (String line:content) {
+        int i = 1;
 
-            String[] Cells = line.split(",\\s*");
-            int j = 0;
+        for (String line : content) {
+            if (line.isEmpty()) {
+                i++;
+                continue;
+            }
+
+            int j = 1;
+            String[] Cells = line.split(",");
             for (String cell : Cells) {
+                Position p = new Position(i, j);
 
-                //add field size
-                if (!cell.trim().isEmpty()) {
-                    Position p = new Position(i,j);
-
-                    cellsM.add(Cell.createStringCell(cell,p));
-                    j++;
-                }
+                cellsM.add(CellMaker.evaluateInfo(cell, p));
+                j++;
             }
             i++;
         }
 
-        i = 0;
 
-        int j =0;
-        for (Cell cell : cellsM) {
-            if(cell.getValue() != null){
-                j += 7;
-                if(cell.position.getRow() > i){
-                    i++;
-                    System.out.println("");
-                    System.out.println(new String(new char[j]). replace("\0", "_"));
-                    j=0;
-                }
-                System.out.print(cell.getValue() + "\t"+"|");
-            }else{
-                System.out.print("\t");
+        int bCell = 0;
+        int longestL = 0;
+
+        for(Cell cell:cellsM){
+            if(cell.position.getCol()>longestL){
+                longestL=cell.position.getCol();
             }
+            if (bCell < cell.getValue().toString().length() + cell.getValue().toString().length()%4) {
+                bCell = cell.getValue().toString().length() + cell.getValue().toString().length() % 4;
+            }
+        }
+
+        //print table
+
+
+        Position lCell = new Position(1,1);
+
+        for(Cell cell :cellsM){
+
+            if (cell.position.getRow() > lCell.getRow()) {
+
+                while (lCell.getCol() < longestL) {
+                    System.out.print(" ".repeat(bCell - 1) + "|");
+                    lCell = new Position(lCell.getRow(),lCell.getCol()+1);
+                }
+                System.out.println("");
+            }
+            while(cell.position.getRow()>lCell.getRow()+1){
+                System.out.println("");
+                lCell = new Position(lCell.getRow()+1,lCell.getCol());
+            }
+            System.out.print(cell.getValue() + " ".repeat(bCell - 1-cell.getValue().toString().length()) + "|");
+
+            //evaluate info()
+            lCell = cell.position;
+
         }
     }
 }
-

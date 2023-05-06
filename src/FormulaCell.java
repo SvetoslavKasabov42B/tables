@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 class FormulaCell extends Cell {
     private String value = "";
 
@@ -5,14 +8,14 @@ class FormulaCell extends Cell {
         this.value = value;
         this.position = position;
     }
-
     public Object getValue() {
-        // Evaluate the formula expression and return the result
-        // (Implementation left to the reader)
-        return null;
+    return value;
     }
+
+
 
     public CellType getType() {
         return CellType.FORMULA;
     }
+
 }
