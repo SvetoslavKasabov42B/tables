@@ -51,9 +51,9 @@ public class Main {
 
 
         ArrayList<Cell> cellsM = new ArrayList<Cell>();
-
         int i = 1;
 
+        //for every line in file
         for (String line : content) {
             if (line.isEmpty()) {
                 i++;
@@ -62,6 +62,8 @@ public class Main {
 
             int j = 1;
             String[] Cells = line.split(",");
+
+            //for every string (split by ',') in every line in file
             for (String cell : Cells) {
                 Position p = new Position(i, j);
 
@@ -71,43 +73,10 @@ public class Main {
             i++;
         }
 
-
-        int bCell = 0;
-        int longestL = 0;
-
-        for(Cell cell:cellsM){
-            if(cell.position.getCol()>longestL){
-                longestL=cell.position.getCol();
-            }
-            if (bCell < cell.getValue().toString().length() + cell.getValue().toString().length()%4) {
-                bCell = cell.getValue().toString().length() + cell.getValue().toString().length() % 4;
-            }
-        }
-
         //print table
-
-
         Position lCell = new Position(1,1);
+        Printer p = new Printer(cellsM);
+        p.printTable();
 
-        for(Cell cell :cellsM){
-
-            if (cell.position.getRow() > lCell.getRow()) {
-
-                while (lCell.getCol() < longestL) {
-                    System.out.print(" ".repeat(bCell - 1) + "|");
-                    lCell = new Position(lCell.getRow(),lCell.getCol()+1);
-                }
-                System.out.println("");
-            }
-            while(cell.position.getRow()>lCell.getRow()+1){
-                System.out.println("");
-                lCell = new Position(lCell.getRow()+1,lCell.getCol());
-            }
-            System.out.print(cell.getValue() + " ".repeat(bCell - 1-cell.getValue().toString().length()) + "|");
-
-            //evaluate info()
-            lCell = cell.position;
-
-        }
     }
 }

@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class CellMaker {
+
     public static Cell evaluateInfo(String content, Position position) {
         if (!content.isEmpty() && content.matches("^[a-zA-Z0-9-+*/^=.\"]*$")) {
             if (content.charAt(0) == '=') {
