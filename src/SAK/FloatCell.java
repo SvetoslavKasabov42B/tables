@@ -1,3 +1,5 @@
+package SAK;
+
 class FloatCell extends Cell {
     private float value = 0;
 

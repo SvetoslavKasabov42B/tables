@@ -1,3 +1,5 @@
+package SAK;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,7 +12,7 @@ public class FileHandler {
     public static ArrayList<String> getFileContent(){
         ArrayList<String> content = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader br = new BufferedReader(new FileReader((file)))) {
 
             String line;
             int counter = 0;
@@ -24,11 +26,8 @@ public class FileHandler {
         }
         return content;
     }
-    public void openFile(){
-        Scanner myInput = new Scanner( System.in );
-        System.out.print(new File(".inputFile.xml").getAbsolutePath());
-        System.out.print("Please input the name of the file you want to open:");
-        file = new File("./src/" + myInput.next());
+    public static ArrayList<Cell> openFile(String filename){
+        file = new File(filename);
 
 
         ArrayList<String> content = FileHandler.getFileContent();
@@ -56,26 +55,6 @@ public class FileHandler {
             }
             i++;
         }
-
-        //print table
-        System.out.println();
-        System.out.println();
-
-        Position lCell = new Position(1,1);
-        Printer p = new Printer(cellsM);
-        p.printTable();
-    }
-    public static void saveFile(File file){
-
-    }
-    public static void saveFileAs(File file){
-
-    }
-    public static void help(){
-
-    }
-
-    public static void exit(){
-
+        return cellsM;
     }
 }

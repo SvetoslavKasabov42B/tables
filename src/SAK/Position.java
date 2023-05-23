@@ -1,3 +1,5 @@
+package SAK;
+
 class Position {
     private int row;
     private int col;

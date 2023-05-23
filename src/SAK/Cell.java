@@ -1,4 +1,6 @@
-abstract class Cell {
+package SAK;
+
+public abstract class Cell {
     Position position;
     public abstract Object getValue();
     public abstract CellType getType();

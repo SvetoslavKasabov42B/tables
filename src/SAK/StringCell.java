@@ -1,7 +1,9 @@
-class IntCell extends Cell {
-    private int value = 0;
+package SAK;
 
-    public IntCell(int value, Position position) {
+class StringCell extends Cell {
+    private String value = "";
+
+    public StringCell(String value, Position position) {
         this.value = value;
         this.position = position;
     }
@@ -11,6 +13,6 @@ class IntCell extends Cell {
     }
 
     public CellType getType() {
-        return CellType.INT;
+        return CellType.STRING;
     }
 }

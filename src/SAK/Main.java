@@ -1,8 +1,6 @@
-import CLI.CommandCollection;
-import CLI.CommandLineInterface;
+package SAK;
 
-import java.io.File;
-import java.util.ArrayList;
+import SAK.CLI.CommandLineInterface;
 
 /*
 4. Празен ред във файла представя празен ред в таблицата. (т.е. ред, в който всички
@@ -48,7 +46,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        /*File testFile = new File("C:\\Users\\Svetoslav Kasabov\\Desktop\\UNI\\OOP\\V PROCESS NA OBRABOTKA\\project2\\src\\inputFile.xml");
+        /*File testFile = new File(".\src\inputFile.xml");
 
         ArrayList<String> content = FileHandler.getFileContent(testFile);
 
@@ -67,7 +65,7 @@ public class Main {
             String[] Cells = line.split(",");
 
             //for every string (split by ',') in every line in file
-            for (String cell : Cells) {
+            for (String asdcell : Cells) {
                 Position p = new Position(i, j);
 
                 cellsM.add(CellMaker.evaluateInfo(cell, p));
@@ -81,11 +79,12 @@ public class Main {
         Printer p = new Printer(cellsM);
         p.printTable();
         */
-        File file = new File("inputFile.xml");
 
-        while (true){
+        boolean flag = true;
+
+        while (flag){
             CommandLineInterface cli = new CommandLineInterface();
-            cli.run();
+            flag = cli.run();
         }
     }
 }
