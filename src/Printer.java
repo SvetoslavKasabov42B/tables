@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Printer {
 
-    ArrayList<Cell> table= new ArrayList<Cell>();
+    ArrayList<Cell> table;
 
-    public Printer(ArrayList<Cell> table) {
-        this.table = table;
+    public Printer(ArrayList<Cell> cellsM) {
+        this.table = cellsM;
     }
     public void printTable() {
         Position lCell = new Position(1,1);
@@ -42,5 +44,6 @@ public class Printer {
             lCell = cell.position;
 
         }
+        System.out.println();
     }
 }

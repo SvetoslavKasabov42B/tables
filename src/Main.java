@@ -1,3 +1,6 @@
+import CLI.CommandCollection;
+import CLI.CommandLineInterface;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -43,9 +46,9 @@ import java.util.ArrayList;
 */
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        File testFile = new File("C:\\Users\\Svetoslav Kasabov\\Desktop\\UNI\\OOP\\V PROCESS NA OBRABOTKA\\project2\\src\\inputFile.txt");
+        /*File testFile = new File("C:\\Users\\Svetoslav Kasabov\\Desktop\\UNI\\OOP\\V PROCESS NA OBRABOTKA\\project2\\src\\inputFile.xml");
 
         ArrayList<String> content = FileHandler.getFileContent(testFile);
 
@@ -77,6 +80,12 @@ public class Main {
         Position lCell = new Position(1,1);
         Printer p = new Printer(cellsM);
         p.printTable();
+        */
+        File file = new File("inputFile.xml");
 
+        while (true){
+            CommandLineInterface cli = new CommandLineInterface();
+            cli.run();
+        }
     }
 }

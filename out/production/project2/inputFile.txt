@@ -1,6 +1,0 @@
-asdasd,123,12.12,r1,dasdasd,-12,23dasdasd,+12as,d
-ASd,a,,d,123,as,d,asd,a,sd,,a
-as,d,a,da,s,da,Hello World!
-
-f,sd,gs,j,dhf,j,v, ,,
-,,,asd,as,d,,,,,dasd,
